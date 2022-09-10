@@ -30,7 +30,7 @@ public class SwerveModule {
   private final PIDController m_drivePIDController = new PIDController(1, 0, 0);
 
   private final ProfiledPIDController m_turningPIDController =
-    new ProfiledPIDController(1, 0, 0, new TrapezoidProfile.Constraints(5, 10)); //placeholder values
+    new ProfiledPIDController(1, 0, 0, new TrapezoidProfile.Constraints(5, 10)); //placeholder values, need to determine gains
   
   //placeholder ks, kv values
   private final SimpleMotorFeedforward m_driveFeedforward = new SimpleMotorFeedforward(1, 3);
@@ -43,7 +43,7 @@ public class SwerveModule {
     int driveEncoderChannelB, 
     int turningEncoderChannelA, 
     int turningEncoderChannelB) {
-      driveMotor = new PWMSparkMax(driveMotorChannel);
+      driveMotor = new PWMSparkMax(driveMotorChannel); //?? might change on what motors we are using
       turningMotor = new PWMSparkMax(turningMotorChannel);
       driveEncoder = new Encoder(driveEncoderChannelA, driveEncoderChannelB);
       turningEncoder = new Encoder(turningEncoderChannelA, turningEncoderChannelB);
